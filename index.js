@@ -125,6 +125,7 @@ app.get("/jobs/:jobId/delete", ensureAuthenticated, JobController.removeJob);
 app.get("/404", UserController.render404Page);
 
 // Listen on the specified port
-app.listen(5000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   console.log(`Server running on port 3000`);
 });
