@@ -1,0 +1,81 @@
+<head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    .app-listings {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card {
+      width: 22rem;
+      background-color: rgb(133, 255, 143);
+      border: none;
+    }
+    .card-body {
+      border-bottom: 2px solid black;
+     background-color: rgb(80, 136, 233);
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+    }
+    .card-title {
+      text-align: center;
+    }
+    .detail {
+      height: 12rem;
+      margin-left: -20px;
+    }
+    .detail li{
+      list-style: none;
+      margin-top: 20px;
+    }
+    .detail span{
+      font-weight: 700;
+    }
+    .detail p{
+      font-weight: 600;
+    }
+    .detail a{
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Applicant for <%= job.jobcategory %></h1>
+  <div class="app-listings">
+    <% if(applicant) { %>
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">
+          <%= applicant.applicantId %>. <%= applicant.name %>
+        </h2>
+      </div>
+      <ul class="detail">
+        <li>
+          <p><span>Email:</span> <%= applicant.email %></p>
+        </li>
+        <li>
+          <p><span>Contact:</span> <%= applicant.contact %></p>
+        </li>
+        <li>
+          <p>
+            <span>Resume:</span>
+            <a href="/uploads/<%= applicant.resumePath %>" target="_blank"
+              >Download Resume</a
+            >
+          </p>
+        </li>
+      </ul>
+    </div>
+    <% } %>
+  </div>
+</body>

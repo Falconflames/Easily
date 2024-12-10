@@ -1,0 +1,131 @@
+<head>
+  <style>
+    body {
+      background-color: black;
+    }
+    .welcome {
+      font-size: 2rem;
+    }
+    .headings p {
+      color: #0289ff;
+      text-align: center;
+    }
+    .main {
+      color: rgb(184, 3, 255);
+    }
+    .flow-text {
+      position: absolute;
+      white-space: nowrap;
+      animation: flow-text 5s ease-in-out infinite;
+      text-wrap: wrap;
+      margin-top: 5px;
+    }
+    @keyframes flow-text {
+      from {
+        transform: translateX(0px);
+        opacity: 0;
+      }
+      10% {
+        transform: translateX(100px);
+        opacity: 1;
+      }
+      90% {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+    }
+    .btn1 button {
+      border: none;
+      border-radius: 50px;
+      background-color: rgb(255, 255, 255);
+      padding: 5px;
+    }
+    .btn1 a {
+      color: black;
+      font-weight: 700;
+      margin: 0px 5px;
+    }
+    .btn1 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="headings">
+    <% if (user && previousVisit) { %>
+    <p class="welcome">
+      Welcome back, <span><%= name %>! </span>&nbsp; You last visited on <%=
+      previousVisit %>.
+    </p>
+    <!-- <p>Your current visit is  currentVisit %>.</p> -->
+    <% } else if(user && !previousVisit){ %>
+    <p class="welcome">
+      Welcome, <span><%= name %>! </span>&nbsp; This is your first visit.
+    </p>
+    <!-- <p>Your current visit is  currentVisit %>.</p> -->
+    <% }else{ %>
+    <p class="welcome">Welcome!&nbsp; Please Explore.</p>
+    <!-- <p>Your current visit is  currentVisit %>.</p> -->
+  </div>
+  <% } %>
+  <div class="main">
+    <div>
+      <div>
+        <h1>Welcome To Easily – Your Gateway to Dream Jobs and Top Talent</h1>
+      </div>
+      <div class="flow-text">
+        <h2>Connecting Job Seekers with Recruiters for a Brighter Future</h2>
+      </div>
+      <div style="margin-top: 80px">
+        <h3>Overview</h3>
+        For Job Seekers
+        <b>Find Your Dream Job</b>
+        Dive into a wide range of job listings tailored to your skills and
+        preferences. From tech to marketing, discover opportunities that match
+        your career aspirations and apply with ease. For Recruiters
+        <b>Discover Top Talent</b>
+        Streamline your recruitment process with access to a diverse pool of
+        qualified candidates. Post job openings, manage applications, and find
+        the perfect match for your team.
+      </div>
+      <div style="margin-top: 20px">
+        <h3>Easy Navigation</h3>
+        <b>"Seamlessly Browse and Apply"</b>
+        Our user-friendly interface ensures that job seekers can effortlessly
+        search for jobs, view detailed descriptions, and submit applications.
+        Recruiters can easily post new jobs, update listings, and review
+        applicants.
+
+        <h3 style="margin-top: 20px">Personalized Experience</h3>
+        <b>"Tailored Job Alerts and Recommendations"</b>
+        Job seekers receive personalized job recommendations and alerts based on
+        their profiles and search behavior, ensuring they don't miss out on
+        ideal opportunities.
+      </div>
+      <div class="btn1">
+        <button>
+          <a class="text-decoration-none" href="/jobs">Job Seeker</a>
+        </button>
+        <% if(user){%>
+        <button>
+          <a class="text-decoration-none" href="/jobs">Recruiter</a>
+        </button>
+        <%}else{%>
+        <button>
+          <a class="text-decoration-none" href="/login">Recruiter</a>
+        </button>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</body>

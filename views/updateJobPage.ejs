@@ -1,0 +1,113 @@
+<head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+
+  <body>
+    <% if (errors && errors.length > 0) { %>
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+        <% }); %>
+      </ul>
+    </div>
+    <%}%>
+    <h1>Update Job</h1>
+    <form action="/jobs/<%= jobId %>/update" method="post" class="p-5">
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="jobcategory">Job Category</label>
+        <input
+          name="jobcategory"
+          type="text"
+          class="form-control mb-4"
+          id="jobcategory"
+          aria-describedby="jobcategoryHelp"
+          placeholder="Enter Job Type"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="jobdesignation">Job Designation</label>
+        <input
+          name="jobdesignation"
+          type="text"
+          class="form-control mb-4"
+          id="jobdesignation"
+          aria-describedby="jobdesignationHelp"
+          placeholder="Enter Job Designation"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="joblocation">Job Location</label>
+        <input
+          name="joblocation"
+          type="text"
+          class="form-control mb-4"
+          id="joblocation"
+          aria-describedby="joblocationHelp"
+          placeholder="Enter Job Location"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="companyname">Company Name</label>
+        <input
+          name="companyname"
+          type="text"
+          class="form-control mb-4"
+          id="companyname"
+          aria-describedby="companynameHelp"
+          placeholder="Enter Company Name"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="salary">Salary</label>
+        <input
+          name="salary"
+          type="text"
+          class="form-control mb-4"
+          id="salary"
+          aria-describedby="salaryHelp"
+          placeholder="Enter Salary"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="deadline">Application Deadline</label>
+        <input
+          name="deadline"
+          type="date"
+          class="form-control mb-4"
+          id="deadline"
+          aria-describedby="deadlineHelp"
+          placeholder="Enter Deadline"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="skills">Skills Required</label>
+        <input
+          name="skills"
+          type="text"
+          class="form-control mb-4"
+          id="skills"
+          aria-describedby="skillsHelp"
+          placeholder="Enter Required Skills"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="openings">Number of Openings</label>
+        <input
+          name="openings"
+          type="number"
+          class="form-control mb-4"
+          id="openings"
+          aria-describedby="openingsHelp"
+          placeholder="Enter Number of Openings"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Update</button>
+    </form>
+  </body>
+</head>

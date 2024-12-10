@@ -1,0 +1,59 @@
+<head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    h3 {
+      margin-top: 20px;
+    }
+
+    h3 a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <% if (errors && errors.length > 0) { %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  </div>
+  <%}%>
+  <div>
+    <h1>Login as Recruiter</h1>
+    <h3>
+      Don't have an account Register&nbsp;<a href="./register"> Register Now</a>
+    </h3>
+    <form action="/login" method="post" class="p-5">
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="email">Email</label>
+        <input
+          name="email"
+          type="email"
+          class="form-control mb-4"
+          id="email"
+          aria-describedby="emailHelp"
+          placeholder="Enter Your Email"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mb-2 ps-1" for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control mb-4"
+          id="password"
+          aria-describedby="passwordHelp"
+          placeholder="Enter Your Password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Login</button>
+    </form>
+  </div>
+</body>

@@ -1,0 +1,12 @@
+<body>
+  <div><h1>ERROR 404 Page Not Found</h1></div>
+  <% if (errors && errors.length > 0) { %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  </div>
+  <%}%>
+</body>
